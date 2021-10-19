@@ -5,11 +5,12 @@ What would you like to do (Please enter one of the options below): "TASKS" - Dis
 "CLOSE" - Close The Task Manager
 `
 
-let response
+let response;
 
 response = prompt(`${startMenu}`)
-let tasks = [`Charge MacBook
-Master JavaScript`]
+
+//let tasks = [`Charge MacBook
+//Master JavaScript`]
 let remove
 let removeTasks
 let removeIndex
@@ -28,15 +29,18 @@ while (true) {
     alert(`${tasks} \n${response}`)
 
   } else if (response.toUpperCase() === `REMOVE`) {
+    const mapOfTasks;
     while (true) {
+      //
       for (let i = 0; i < tasks.length; i++) {
-        tasks = tasks.length + `${i + 1}: ${tasks[i]}`
+        mapOfTasks.set(tasks[i], (i+1))
       }
-        removeIndex = prompt(`Please enter a number to remove:\n${tasks}`) - 1
         
-        if (removeIndex >= 0 && removeIndex < tasks.length) { 
-          removeTasks = tasks.splice(removeIndex,1)
-        }
+      removeIndex = prompt(`Please enter a number to remove:\n${tasks}`) - 1
+        
+      if (removeIndex >= 0 && removeIndex < tasks.length) { 
+        removeTasks = tasks.splice(removeIndex,1)
+      }
     }
 
   } else {
